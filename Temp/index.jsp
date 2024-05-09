@@ -1,14 +1,12 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.sql.Timestamp"%>
+<%@page import="java.sql.Timestamp"%>
 <%
-    ArrayList<String> task;
-    ArrayList<Timestamp> remind;
-    ArrayList<Timestamp> due;
     int[] id = (int[]) request.getAttribute("id");
-    task = (ArrayList<String>) request.getAttribute("tosk");
+    String[] task = (String[]) request.getAttribute("tosk");
     int[] orderTask = (int[]) request.getAttribute("orderTask");
-    remind = (ArrayList<Timestamp>) request.getAttribute("remind");
-    due = (ArrayList<Timestamp>) request.getAttribute("due");
+    Timestamp[] remind = (Timestamp[]) request.getAttribute("remind");
+    Timestamp[] due = (Timestamp[]) request.getAttribute("due");
     boolean[] status = (boolean[]) request.getAttribute("status");
 %>
 <!DOCTYPE html>
