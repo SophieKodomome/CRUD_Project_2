@@ -39,7 +39,7 @@ public class ReadTask extends HttpServlet {
                 arrayRemind[i]=taskList.get(i).getRemind();
                 arrayDue[i]=taskList.get(i).getDue();
                 arrayStatus[i] = taskList.get(i).getStatus();
-                System.out.println(arrayId);
+                System.out.println(arrayId[i]);
             }
             System.out.println("Arrays populated successfully.");
             
