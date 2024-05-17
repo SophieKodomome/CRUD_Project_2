@@ -1,3 +1,5 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.sql.Timestamp"%>
 <%@page import="java.sql.Timestamp"%>
 <%
     int[] id = (int[]) request.getAttribute("id");
@@ -18,6 +20,7 @@
 </head>
 
 <body class="font-sans leading-normal tracking-normal">
+    
     <div class="flex md:flex-row md:min-h-screen">
 
         <aside class="bg-blue-600 md:w-52 md:min-h-screen py-6 px-4 text-white">

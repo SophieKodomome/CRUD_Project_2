@@ -19,12 +19,6 @@
 
 <body class="font-sans leading-normal tracking-normal">
     <div class="flex md:flex-row md:min-h-screen">
-        <% for(int i=0;i<id.length;i++){
-            %>
-                <p><%= task[i] %></p>
-            <%
-            }
-        %>
         <aside class="bg-blue-600 md:w-52 md:min-h-screen py-6 px-4 text-white">
             <header class="mb-10">
                 <h1 class="font-extrabold uppercase text-xl tracking-tight">Notodo</h1>
@@ -48,11 +42,14 @@
             </header>
             <article>
                 <section>
+            <% for(int i=0;i<id.length;i++){
+                if(status[i]==false){
+            %>
                     <section class="p-4 border rounded-xl shadow-lg flex flex-row mr-10 mb-10 md:min-w-screen">
                         <aside class="flex flex-col mr-10">
                             <header>
                                 <h2 class="hover:text-blue-600 text-blue-500 font-bold">
-                                    Task 1
+                                    <%=task[i] %>
                                 </h2>
                             </header>
                             <article class="flex flex-row space-x-4">
@@ -61,7 +58,7 @@
                                         Reminder:
                                     </h3>
                                     <strong class="text-blue-500">
-                                        datetime
+                                        <%=remind[i] %>
                                     </strong>
                                 </span>
                                 <span class="flex flex-row space-x-2">
@@ -69,7 +66,7 @@
                                         Due: 
                                     </h3>
                                     <strong class="text-blue-500">
-                                        datetime
+                                        <%=due[i] %>
                                     </strong>
                                 </span>
                                 <strong class="hover:text-green-600 text-green-500">
@@ -79,43 +76,50 @@
                         </aside>
                         <aside class="border-l pt-4 pl-10 flex flex-row space-x-2">
                             <a href="todo.html">
-                                <button class="bg-white border-2 border-blue-500 hover:bg-blue-500 hover:text-white text-blue-500 font-bold py-2 px-4 rounded-lg">
+                                <button class="bg-white border-2 border-blue-500 hover:bg-blue-500 hover:text-white text-blue-500 font-bold py-2 px-4 rounded-lg" value=<%=id[i] %>>
                                     &uarr;
                                 </button>
                             </a>
                             <a href="todo.html">
-                                <button class="bg-white border-2 border-blue-500 hover:bg-blue-500 hover:text-white text-blue-500 font-bold py-2 px-4 rounded-lg">
+                                <button class="bg-white border-2 border-blue-500 hover:bg-blue-500 hover:text-white text-blue-500 font-bold py-2 px-4 rounded-lg" value=<%=id[i] %>>
                                     &darr;
                                 </button>
                             </a>
                             <a href="todo.html">
-                                <button class="py-2 px-4 text-white font-semibold bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-lg shadow-lg">
+                                <button class="py-2 px-4 text-white font-semibold bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-lg shadow-lg" value=<%=id[i] %>>
                                     Finish!
                                 </button>
                             </a>
                             <a href="todo.html">
-                                <button class=" hover:text-blue-600 text-blue-400 underline underline-offset-2 py-2 px-2 rounded">
+                                <button class=" hover:text-blue-600 text-blue-400 underline underline-offset-2 py-2 px-2 rounded" value=<%=id[i] %>>
                                     Modify
                                 </button>
                             </a>
                             <a href="todo.html">
-                                <button class=" hover:text-red-800 text-red-400 underline underline-offset-2 py-2 px-2 rounded">
+                                <button class=" hover:text-red-800 text-red-400 underline underline-offset-2 py-2 px-2 rounded" value=<%=id[i] %>>
                                     Delete
                                 </button>
                             </a>
                         </aside>
                     </section>
+            <%
+                }
+            }
+            %>
                     <section>
                         <header>
                             <h3 class="text-2xl text-blue-500 font-bold border-b-2 pb-4 mb-4 mr-10">
                                 Completed
                             </h3>
                         </header>
+            <%  for(int i=0;i<id.length;i++){
+                    if(status[i]==true){
+            %>
                         <section class="p-4 border rounded-xl shadow-lg flex flex-row mr-10 mb-10 md:min-w-screen bg-gray-800">
                             <aside class="flex flex-col mr-10 opacity-50">
                                 <header>
                                     <h2 class="hover:text-blue-600 text-blue-500 font-bold">
-                                        Task 0
+                                        <%=task[i] %>
                                     </h2>
                                 </header>
                                 <article class="flex flex-row space-x-4">
@@ -124,7 +128,7 @@
                                             Reminder:
                                         </h3>
                                         <strong class="text-blue-500">
-                                            datetime
+                                            <%=remind[i] %>
                                         </strong>
                                     </span>
                                     <span class="flex flex-row space-x-2">
@@ -132,7 +136,7 @@
                                             Due: 
                                         </h3>
                                         <strong class="text-blue-500">
-                                            datetime
+                                            <%=due[i] %>
                                         </strong>
                                     </span>
                                     <strong class="hover:text-green-600 text-green-500">
@@ -142,12 +146,16 @@
                             </aside>
                             <aside class="border-l pt-4 pl-10 flex flex-row space-x-2 opacity-50">
                                 <a href="todo.html">
-                                    <button class=" hover:text-red-800 text-red-400 underline underline-offset-2 py-2 px-2 rounded">
+                                    <button class=" hover:text-red-800 text-red-400 underline underline-offset-2 py-2 px-2 rounded" value=<%=id[i] %>>
                                         Cancel
                                     </button>
                                 </a>
                             </aside>
                         </section>
+                <%
+                        }
+                    }
+                %>
                     </section>
                 </section>
                 <section class="p-4 border rounded-xl shadow-lg flex flex-col mr-10 mb-10 md:min-w-screen">
@@ -173,7 +181,6 @@
                             Add Task
                         </button>
                     </form>
-                    <a href="readtask">List</a>
                 </section>
             </article>
             <footer class="text-gray-800 border-t mr-10 pt-10 mt-10">
