@@ -5,12 +5,16 @@
          version="4.0">
 
     <servlet>
-    <servlet-name>CreateTask</servlet-name>
-    <servlet-class>AddTask</servlet-class>
+        <servlet-name>CreateTask</servlet-name>
+        <servlet-class>AddTask</servlet-class>
     </servlet>
     <servlet>
-    <servlet-name>ShowTask</servlet-name>
-    <servlet-class>ReadTask</servlet-class>
+        <servlet-name>ShowTask</servlet-name>
+        <servlet-class>ReadTask</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>FinishTask</servlet-name>
+        <servlet-class>FinishTask</servlet-class>
     </servlet>
 
     <servlet-mapping>
@@ -19,8 +23,10 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ShowTask</servlet-name>
-        <url-pattern>/readtask</url-pattern>
+        <url-pattern>/readTask</url-pattern>
     </servlet-mapping>
-
-
+    <servlet-mapping>
+        <servlet-name>FinishTask</servlet-name>
+        <url-pattern>/finishTask</url-pattern>
+    </servlet-mapping>
 </web-app>

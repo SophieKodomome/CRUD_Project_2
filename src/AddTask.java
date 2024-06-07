@@ -29,7 +29,7 @@ public class AddTask extends HttpServlet {
             connection.close();
 
             if (rowsInserted > 0) {
-                response.sendRedirect("tasklist.jsp");
+                response.sendRedirect("readTask");
             } else {
                 response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Task cannot be added");
             }

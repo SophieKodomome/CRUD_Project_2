@@ -80,7 +80,15 @@ public class Task {
         statement.close();
         return rowsInserted;
     }
-
+    public static int finishTask(String id,Connection connection) throws SQLException{
+        String sql = "UPDATE todolist SET status = ? WHERE id = ?";
+        PreparedStatement statement = connection.prepareStatement(sql);
+        statement.setBoolean(1, true);
+        statement.setInt(2, Integer.parseInt(id));
+        int rowsInserted = statement.executeUpdate();
+        statement.close();
+        return rowsInserted;
+    }
     public static ArrayList<Task> getTodoList(Connection connection) throws SQLException {
         ArrayList<Task> todolists = new ArrayList<>();
         Statement statement = null;
