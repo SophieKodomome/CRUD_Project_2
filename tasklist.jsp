@@ -85,8 +85,8 @@
                                     &darr;
                                 </button>
                             </a>
-                            <a href="todo.html">
-                                <button class="py-2 px-4 text-white font-semibold bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-lg shadow-lg" value=<%=id[i] %>>
+                            <a href="todo.jsp?id=<%=id[i] %>">
+                                <button class="py-2 px-4 text-white font-semibold bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-lg shadow-lg">
                                     Finish!
                                 </button>
                             </a>
