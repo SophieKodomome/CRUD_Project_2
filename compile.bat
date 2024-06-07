@@ -27,7 +27,7 @@ xcopy %init_lib%  %WEB-INF-lib%
 xcopy %init_class% %WEB-INF-classes%
 del %init_class *.class
 
-cd %Temp%
+cd ..
 
 rem jar cvf crud.war
 
