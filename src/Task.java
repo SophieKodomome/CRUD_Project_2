@@ -1,5 +1,4 @@
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.Statement;
 import java.sql.ResultSet;
@@ -91,6 +90,15 @@ public class Task {
         return rowsInserted;
     }
 
+    public static int cancelFinishTask(String id,Connection connection) throws SQLException{
+        String sql = "UPDATE todolist SET status = ? WHERE id = ?";
+        PreparedStatement statement = connection.prepareStatement(sql);
+        statement.setBoolean(1, false);
+        statement.setInt(2, Integer.parseInt(id));
+        int rowsInserted = statement.executeUpdate();
+        statement.close();
+        return rowsInserted;
+    }
     public static int deleteTask(String id,Connection connection) throws SQLException{
         String sql="DELETE FROM todolist WHERE id=?";
         PreparedStatement statement = connection.prepareStatement(sql);

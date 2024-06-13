@@ -15,6 +15,10 @@
     <servlet>
         <servlet-name>FinishTask</servlet-name>
         <servlet-class>FinishTask</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CancelFinishTask</servlet-name>
+        <servlet-class>CancelFinishTask</servlet-class>
     </servlet>    
     <servlet>
         <servlet-name>DeleteTask</servlet-name>
@@ -32,6 +36,10 @@
     <servlet-mapping>
         <servlet-name>FinishTask</servlet-name>
         <url-pattern>/finishTask</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CancelFinishTask</servlet-name>
+        <url-pattern>/cancelFinishTask</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>DeleteTask</servlet-name>

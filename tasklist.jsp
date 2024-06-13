@@ -152,7 +152,7 @@
                                 </article>
                             </aside>
                             <aside class="border-l pt-4 pl-10 flex flex-row space-x-2 opacity-50">
-                                <a href="todo.html">
+                                <a href="cancelFinishTask?id=<%=id[i] %>">
                                     <button class=" hover:text-red-800 text-red-400 underline underline-offset-2 py-2 px-2 rounded" value=<%=id[i] %>>
                                         Cancel
                                     </button>
