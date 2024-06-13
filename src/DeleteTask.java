@@ -9,21 +9,21 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class FinishTask extends HttpServlet {
+public class DeleteTask extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String id = request.getParameter("id");
         try {
             new PSQLConnect();
             Connection connection = PSQLConnect.getConnection();
 
-            int rowsInserted = Task.finishTask(id, connection);
+            int rowsInserted = Task.deleteTask(id, connection);
 
             connection.close();
 
             if (rowsInserted > 0) {
                 response.sendRedirect("readTask");
             } else {
-                response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Task cannot be finished");
+                response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Task cannot be deleted");
             }
 
         } catch (SQLException e) {

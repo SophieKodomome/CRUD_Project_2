@@ -15,6 +15,10 @@
     <servlet>
         <servlet-name>FinishTask</servlet-name>
         <servlet-class>FinishTask</servlet-class>
+    </servlet>    
+    <servlet>
+        <servlet-name>DeleteTask</servlet-name>
+        <servlet-class>DeleteTask</servlet-class>
     </servlet>
 
     <servlet-mapping>
@@ -28,5 +32,9 @@
     <servlet-mapping>
         <servlet-name>FinishTask</servlet-name>
         <url-pattern>/finishTask</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteTask</servlet-name>
+        <url-pattern>/deleteTask</url-pattern>
     </servlet-mapping>
 </web-app>

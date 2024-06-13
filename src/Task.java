@@ -80,6 +80,7 @@ public class Task {
         statement.close();
         return rowsInserted;
     }
+
     public static int finishTask(String id,Connection connection) throws SQLException{
         String sql = "UPDATE todolist SET status = ? WHERE id = ?";
         PreparedStatement statement = connection.prepareStatement(sql);
@@ -89,6 +90,16 @@ public class Task {
         statement.close();
         return rowsInserted;
     }
+
+    public static int deleteTask(String id,Connection connection) throws SQLException{
+        String sql="DELETE FROM todolist WHERE id=?";
+        PreparedStatement statement = connection.prepareStatement(sql);
+        statement.setInt(1, Integer.parseInt(id));
+        int rowsInserted = statement.executeUpdate();
+        statement.close();
+        return rowsInserted;
+    }
+
     public static ArrayList<Task> getTodoList(Connection connection) throws SQLException {
         ArrayList<Task> todolists = new ArrayList<>();
         Statement statement = null;

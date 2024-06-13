@@ -87,16 +87,22 @@
                                 </button>
                             </a>
                             <a href="finishTask?id=<%=id[i] %>">
-                                <button class="py-2 px-4 text-white font-semibold bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-lg shadow-lg">
-                                    Finish!
-                                </button>
+                            <button class="overflow-hidden relative w-32 p-2 h-12 bg-black text-white border-none rounded-md text-xl font-bold cursor-pointer relative z-10 group">
+                                Finish
+                            <span class="absolute w-36 h-32 -top-8 -left-2 bg-white rotate-12 transform scale-x-0 group-hover:scale-x-100 transition-transform group-hover:duration-500 duration-1000 origin-left"></span>
+                            <span class="absolute w-36 h-32 -top-8 -left-2 bg-purple-400 rotate-12 transform scale-x-0 group-hover:scale-x-100 transition-transform group-hover:duration-700 duration-700 origin-left"></span>
+                            <span class="absolute w-36 h-32 -top-8 -left-2 bg-purple-600 rotate-12 transform scale-x-0 group-hover:scale-x-100 transition-transform group-hover:duration-1000 duration-500 origin-left"></span>
+                            <span class="group-hover:opacity-100 group-hover:duration-1000 duration-100 opacity-0 absolute top-2.5 left-6 z-10" >Finish!</span
+  >
+</button>
+
                             </a>
                             <a href="todo.html">
                                 <button class=" hover:text-blue-600 text-blue-400 underline underline-offset-2 py-2 px-2 rounded" value=<%=id[i] %>>
                                     Modify
                                 </button>
                             </a>
-                            <a href="todo.html">
+                            <a href="deleteTask?id=<%=id[i]%>">
                                 <button class=" hover:text-red-800 text-red-400 underline underline-offset-2 py-2 px-2 rounded" value=<%=id[i] %>>
                                     Delete
                                 </button>

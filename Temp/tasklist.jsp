@@ -14,7 +14,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Notodo</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@3.4.4/base.min.css">
 </head>
 
 <body class="font-sans leading-normal tracking-normal">
@@ -86,16 +87,16 @@
                                 </button>
                             </a>
                             <a href="finishTask?id=<%=id[i] %>">
-                                <button class="py-2 px-4 text-white font-semibold bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-lg shadow-lg">
-                                    Finish!
-                                </button>
+                            <button class="bg-gradient-to-r from-purple-400 to-blue-500 hover:from-pink-500 hover:to-purple-600 text-white font-bold py-3 px-6 rounded-lg transform transition-all duration-500 ease-in-out hover:scale-110 hover:brightness-110 hover:animate-pulse active:animate-bounce">
+                                Finish!
+                            </button>
                             </a>
                             <a href="todo.html">
                                 <button class=" hover:text-blue-600 text-blue-400 underline underline-offset-2 py-2 px-2 rounded" value=<%=id[i] %>>
                                     Modify
                                 </button>
                             </a>
-                            <a href="todo.html">
+                            <a href="deleteTask?id=<%=id[i]%>">
                                 <button class=" hover:text-red-800 text-red-400 underline underline-offset-2 py-2 px-2 rounded" value=<%=id[i] %>>
                                     Delete
                                 </button>
