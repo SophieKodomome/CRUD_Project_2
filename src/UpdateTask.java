@@ -9,8 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class AddTask extends HttpServlet {
+public class UpdateTask extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String id = request.getParameter("id");
         String task = request.getParameter("task");
         Timestamp remindTime = Task.convertDateTimeFormat(request.getParameter("remind_time"));
         Timestamp dueTime = Task.convertDateTimeFormat(request.getParameter("due_time"));
@@ -19,19 +20,17 @@ public class AddTask extends HttpServlet {
             response.sendError(HttpServletResponse.SC_BAD_REQUEST, "Information Incomplete");
             return;
         }
-
         try {
             new PSQLConnect();
             Connection connection = PSQLConnect.getConnection();
-
-            int rowsInserted = Task.addTask(task, remindTime, dueTime, connection);
+            int rowsInserted = Task.updateTask(id,task,remindTime,dueTime,connection);
 
             connection.close();
 
             if (rowsInserted > 0) {
                 response.sendRedirect("readTask");
             } else {
-                response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Task cannot be added");
+                response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Task cannot be updated");
             }
 
         } catch (SQLException e) {

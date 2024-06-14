@@ -4,6 +4,8 @@ import java.sql.Statement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 public class Task {
@@ -90,6 +92,18 @@ public class Task {
         return rowsInserted;
     }
 
+    public static int updateTask(String id,String task, Timestamp remindTime, Timestamp dueTime,Connection connection) throws SQLException{
+        String sql = "UPDATE todolist SET task = ?,remind = ?,due = ? WHERE id = ?";
+        PreparedStatement statement = connection.prepareStatement(sql);
+        statement.setString(1, task);
+        statement.setTimestamp(2, remindTime);
+        statement.setTimestamp(3, dueTime);
+        statement.setInt(4, Integer.parseInt(id));
+        int rowsInserted = statement.executeUpdate();
+        statement.close();
+        return rowsInserted;
+    }
+
     public static int cancelFinishTask(String id,Connection connection) throws SQLException{
         String sql = "UPDATE todolist SET status = ? WHERE id = ?";
         PreparedStatement statement = connection.prepareStatement(sql);
@@ -114,7 +128,7 @@ public class Task {
         ResultSet result = null;
         try {
             statement = connection.createStatement();
-            result = statement.executeQuery("select * from todolist");
+            result = statement.executeQuery("select * from todolist order by order_Task");
     
             while (result.next()) {
                 Task task = new Task();
@@ -136,5 +150,46 @@ public class Task {
             }
         }
         return todolists;
+    }
+
+    public static Task getTodoListById(Connection connection,int id) throws SQLException {
+        ArrayList<Task> todolists = new ArrayList<>();
+        Statement statement = null;
+        ResultSet result = null;
+        try {
+            statement = connection.createStatement();
+            result = statement.executeQuery("select * from todolist where id="+id);
+    
+            while (result.next()) {
+                Task task = new Task();
+                task
+                        .addId(result.getInt(1))
+                        .addTask(result.getString(2))
+                        .addOrderTask(result.getInt(3))
+                        .addStatus(result.getBoolean(4))
+                        .addRemindTask(result.getTimestamp(5))
+                        .addDueTask(result.getTimestamp(6));
+                todolists.add(task);
+            }
+        } finally {
+            if (result != null) {
+                result.close();
+            }
+            if (statement != null) {
+                statement.close();
+            }
+        }
+        return todolists.get(0);
+    }
+
+    public static Timestamp convertDateTimeFormat(String date) {
+        // Define input format
+        DateTimeFormatter inputFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm");
+
+        // Parse input string to LocalDateTime
+        LocalDateTime dateTime = LocalDateTime.parse(date, inputFormatter);
+
+        // Convert LocalDateTime to Timestamp
+        return Timestamp.valueOf(dateTime);
     }
 }

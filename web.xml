@@ -13,6 +13,10 @@
         <servlet-class>ReadTask</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>ReadTaskById</servlet-name>
+        <servlet-class>ReadTaskById</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>FinishTask</servlet-name>
         <servlet-class>FinishTask</servlet-class>
     </servlet>
@@ -24,6 +28,10 @@
         <servlet-name>DeleteTask</servlet-name>
         <servlet-class>DeleteTask</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>UpdateTask</servlet-name>
+        <servlet-class>UpdateTask</servlet-class>
+    </servlet>
 
     <servlet-mapping>
         <servlet-name>CreateTask</servlet-name>
@@ -32,6 +40,10 @@
     <servlet-mapping>
         <servlet-name>ShowTask</servlet-name>
         <url-pattern>/readTask</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ReadTaskById</servlet-name>
+        <url-pattern>/readTaskById</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>FinishTask</servlet-name>
@@ -44,5 +56,9 @@
     <servlet-mapping>
         <servlet-name>DeleteTask</servlet-name>
         <url-pattern>/deleteTask</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateTask</servlet-name>
+        <url-pattern>/updateTask</url-pattern>
     </servlet-mapping>
 </web-app>
