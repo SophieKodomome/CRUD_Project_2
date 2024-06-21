@@ -38,11 +38,12 @@ public class User {
         return this.passWord;
     }
 
-    public static User loginUser(String n,String p,Connection connection) throws SQLException{
+    public static User loginUser(String n,String p){
         ArrayList<User> userList = new ArrayList<>();
         Statement statement = null;
         ResultSet result = null;
         try{
+            Connection connection = PSQLConnect.getConnection();
             statement = connection.createStatement();
             result = statement.executeQuery("select * from users where name='" + n + "' AND password= '"+p+"'");
 
@@ -54,13 +55,10 @@ public class User {
                         .addPassWord(result.getString(3));
                 userList.add(user);
             }
-        } finally {
-            if (result != null) {
-                result.close();
-            }
-            if (statement != null) {
-                statement.close();
-            }
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+           return null;
         }
         return userList.get(0);
     }

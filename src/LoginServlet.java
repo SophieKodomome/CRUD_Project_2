@@ -13,7 +13,6 @@ public class LoginServlet extends HttpServlet {
         String userName = request.getParameter("user_name");
         String passWord = request.getParameter("passWord");
         User user = new User();
-        Connection connection = null;
 
         if (userName == null) {
             response.sendError(HttpServletResponse.SC_BAD_REQUEST, "Fill an username");
@@ -26,33 +25,14 @@ public class LoginServlet extends HttpServlet {
             response.sendError(HttpServletResponse.SC_BAD_REQUEST,"Fill both field");
         }
         else{
-            try {
-                connection = PSQLConnect.getConnection();
-    
-                user = User.loginUser(userName,passWord, connection);
-
+                user = User.loginUser(userName,passWord);
+                System.out.println(user.getName());
+                System.out.println(user.getPassWord());
                 HttpSession session = request.getSession(); 
                 session.setAttribute("username",user.getName());
                 session.setAttribute("password",user.getPassWord());
                 session.setAttribute("id",user.getId());
-                connection.close();
-
                 response.sendRedirect("readTask");
-    
-            } catch (SQLException e) {
-                e.printStackTrace();
-                response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Database Error: " + e.getMessage());
-            } finally {
-                if (connection != null) {
-                    try {
-                        System.out.println("Closing database connection...");
-                        connection.close();
-                        System.out.println("Database connection closed successfully.");
-                    } catch (SQLException e) {
-                        e.printStackTrace();
-                    }
-                }
-            }
         }
     }
 }

@@ -6,6 +6,13 @@
     Timestamp remind = (Timestamp) request.getAttribute("remind");
     Timestamp due = (Timestamp) request.getAttribute("due");
     boolean status = (boolean) request.getAttribute("status");
+    String name= new String();
+
+    if(session.getAttribute("username")!=null){
+        name= (String) session.getAttribute("username");
+    }else{
+        response.sendRedirect("index.jsp");
+    }
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,6 +29,8 @@
         <aside class="bg-blue-600 md:w-52 md:min-h-screen py-6 px-4 text-white">
             <header class="mb-10">
                 <h1 class="font-extrabold uppercase text-xl tracking-tight">Notodo</h1>
+                <h2><%=name  %></h2>
+                <a href="/destroySession">Destroy</a>
             </header>
         </aside>
         <main class="container mx-auto py-8 ml-10 mb-10">
