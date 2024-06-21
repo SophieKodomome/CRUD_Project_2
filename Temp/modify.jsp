@@ -37,7 +37,7 @@
                     </h3>
 
                     <form class=" flex flex-row space-x-4" method="post" action="updateTask">
-                        <input name="task" id="task" class="placeholder-gray-400 p-2 border-2 border-gray-400 rounded-lg hover:border-blue-500 focus:border-blue-500 focus:outline-none text-blue-500"  type="text" placeholder="<%= task %>">
+                        <input name="task" id="task" class="placeholder-gray-400 p-2 border-2 border-gray-400 rounded-lg hover:border-blue-500 focus:border-blue-500 focus:outline-none text-blue-500"  type="text" value="<%= task %>">
                         <section class="hover:text-blue-200 bg-blue-500 p-2 rounded-lg text-white flex flex-col">
                             <span class="font-bold">
                                 <label for="remind_time">Reminder Date</label>
@@ -50,10 +50,14 @@
                             </span>
                             <input name="due_time" id="due_time"class="bg-blue-500" type="datetime-local" value="<%= due %>">
                         </section>
-                        <input type="number" readonly id="id" name="id" value="<%= id %>">
-                        <button class="py-2 px-4 text-white font-semibold bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-lg shadow-lg">
-                            Update!
-                        </button>
+                        <input type="number" hidden id="id" name="id" value="<%= id %>">
+                            <button class="overflow-hidden relative w-32 py-2 bg-black text-white border-none rounded-md text-xl font-bold cursor-pointer relative z-10 group">
+                                Finish
+                                <span class="absolute w-36 h-32 -top-8 -left-2 bg-white rotate-12 transform scale-x-0 group-hover:scale-x-100 transition-transform group-hover:duration-500 duration-1000 origin-left"></span>
+                                <span class="absolute w-36 h-32 -top-8 -left-2 bg-purple-400 rotate-12 transform scale-x-0 group-hover:scale-x-100 transition-transform group-hover:duration-700 duration-700 origin-left"></span>
+                                <span class="absolute w-36 h-32 -top-8 -left-2 bg-purple-600 rotate-12 transform scale-x-0 group-hover:scale-x-100 transition-transform group-hover:duration-1000 duration-500 origin-left"></span>
+                                <span class="group-hover:opacity-100 group-hover:duration-1000 duration-100 opacity-0 absolute top-2.5 left-6 z-10" >Finish!</span>
+                            </button>
                     </form>
                 </section>
             </article>

@@ -76,7 +76,7 @@
                             </article>
                         </aside>
                         <aside class="border-l pt-4 pl-10 flex flex-row space-x-2">
-                            <a href="todo.html">
+                            <!---<a href="todo.html">
                                 <button class="bg-white border-2 border-blue-500 hover:bg-blue-500 hover:text-white text-blue-500 font-bold py-2 px-4 rounded-lg" value=<%=id[i] %>>
                                     &uarr;
                                 </button>
@@ -85,7 +85,7 @@
                                 <button class="bg-white border-2 border-blue-500 hover:bg-blue-500 hover:text-white text-blue-500 font-bold py-2 px-4 rounded-lg" value=<%=id[i] %>>
                                     &darr;
                                 </button>
-                            </a>
+                            </a>--->
                             <a href="finishTask?id=<%=id[i] %>">
                             <button class="overflow-hidden relative w-32 py-2 bg-black text-white border-none rounded-md text-xl font-bold cursor-pointer relative z-10 group">
                                 Finish
