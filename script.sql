@@ -20,3 +20,11 @@ CREATE TABLE todolist(
 INSERT INTO todolist(task,status,remind,due) VALUES ('make the app',true,CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
 
 INSERT INTO todolist(task,status,remind,due) VALUES ('make a todo list',false,'2024-04-16 23:59:59','2024-04-20 23:59:59');
+
+CREATE TABLE users(
+    id Serial PRIMARY KEY,
+    name VARCHAR(20),
+    password VARCHAR(20)
+);
+
+INSERT INTO users(name,password) VALUES ('root','root');

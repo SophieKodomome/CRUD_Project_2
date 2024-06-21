@@ -32,6 +32,10 @@
         <servlet-name>UpdateTask</servlet-name>
         <servlet-class>UpdateTask</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>LoginServlet</servlet-name>
+        <servlet-class>LoginServlet</servlet-class>
+    </servlet>
 
     <servlet-mapping>
         <servlet-name>CreateTask</servlet-name>
@@ -60,5 +64,9 @@
     <servlet-mapping>
         <servlet-name>UpdateTask</servlet-name>
         <url-pattern>/updateTask</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LoginServlet</servlet-name>
+        <url-pattern>/loginServlet</url-pattern>
     </servlet-mapping>
 </web-app>
