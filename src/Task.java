@@ -183,7 +183,7 @@ public class Task {
             new PSQLConnect();
             Connection connection = PSQLConnect.getConnection();
             statement = connection.createStatement();
-            result = statement.executeQuery("select * from todolist order by order_Task");
+            result = statement.executeQuery("select * from todolist order by order_Task desc");
     
             while (result.next()) {
                 Task task = new Task();
@@ -231,7 +231,7 @@ public class Task {
                 todolists.add(task);
             }
 
-            connection.close();
+                    connection.close();
         } finally {
             if (result != null) {
                 result.close();
