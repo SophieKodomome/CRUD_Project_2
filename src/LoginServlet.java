@@ -14,14 +14,14 @@ public class LoginServlet extends HttpServlet {
         String passWord = request.getParameter("passWord");
         User user = new User();
 
-        if (userName == null) {
+        if (userName == null || userName == "") {
             response.sendError(HttpServletResponse.SC_BAD_REQUEST, "Fill an username");
             return;
         }
-        if (passWord == null){
+        if (passWord == null || passWord == ""){
             response.sendError(HttpServletResponse.SC_BAD_REQUEST,"Fill a password");
         }
-        if (userName == null && passWord == null){
+        if (userName == null && passWord == null || userName == "" && passWord == ""){
             response.sendError(HttpServletResponse.SC_BAD_REQUEST,"Fill both field");
         }
         else{

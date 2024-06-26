@@ -59,6 +59,8 @@ public class User {
         } catch (SQLException e) {
             e.printStackTrace();
            return null;
+        } catch(IndexOutOfBoundsException e){
+            System.out.println("the user doesn't exist");
         }
         return userList.get(0);
     }
