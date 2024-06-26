@@ -13,13 +13,9 @@ public class FinishTask extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String id = request.getParameter("id");
         try {
-            new PSQLConnect();
-            Connection connection = PSQLConnect.getConnection();
 
-            int rowsInserted = Task.finishTask(id, connection);
-
-            connection.close();
-
+            int rowsInserted = Task.finishTask(id);
+            
             if (rowsInserted > 0) {
                 response.sendRedirect("readTask");
             } else {

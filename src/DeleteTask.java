@@ -13,12 +13,7 @@ public class DeleteTask extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String id = request.getParameter("id");
         try {
-            new PSQLConnect();
-            Connection connection = PSQLConnect.getConnection();
-
-            int rowsInserted = Task.deleteTask(id, connection);
-
-            connection.close();
+            int rowsInserted = Task.deleteTask(id);
 
             if (rowsInserted > 0) {
                 response.sendRedirect("readTask");

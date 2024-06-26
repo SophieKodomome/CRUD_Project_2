@@ -21,11 +21,7 @@ public class UpdateTask extends HttpServlet {
             return;
         }
         try {
-            new PSQLConnect();
-            Connection connection = PSQLConnect.getConnection();
-            int rowsInserted = Task.updateTask(id,task,remindTime,dueTime,connection);
-
-            connection.close();
+            int rowsInserted = Task.updateTask(id,task,remindTime,dueTime);
 
             if (rowsInserted > 0) {
                 response.sendRedirect("readTask");

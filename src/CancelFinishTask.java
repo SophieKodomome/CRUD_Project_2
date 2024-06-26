@@ -13,12 +13,7 @@ public class CancelFinishTask extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String id = request.getParameter("id");
         try {
-            new PSQLConnect();
-            Connection connection = PSQLConnect.getConnection();
-
-            int rowsInserted = Task.cancelFinishTask(id, connection);
-
-            connection.close();
+            int rowsInserted = Task.cancelFinishTask(id);
 
             if (rowsInserted > 0) {
                 response.sendRedirect("readTask");

@@ -6,9 +6,7 @@ public class Main {
     public static void main(String args[]){
         System.out.println("hello");
         try {
-            Connection connection = null;  
-            connection = PSQLConnect.getConnection();
-            ArrayList<Task> arrayListTask= Task.getTodoList(connection);
+            ArrayList<Task> arrayListTask= Task.getTodoList();
             for (Task task : arrayListTask) {
                 System.out.println(task.getId());
             } 

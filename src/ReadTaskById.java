@@ -14,16 +14,12 @@ import javax.servlet.http.HttpServletResponse;
 public class ReadTaskById extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Task task = new Task();
-        Connection connection = null;
         String stringId = request.getParameter("id");
         int selectedId = Integer.parseInt(stringId);
         try {
-            System.out.println("Attempting to establish database connection...");
-            connection = PSQLConnect.getConnection();
-            System.out.println("Database connection established successfully.");
             
             System.out.println("Retrieving todo list from the database...");
-            task = Task.getTodoListById(connection,selectedId);
+            task = Task.getTodoListById(selectedId);
             System.out.println("Todo list retrieved successfully.");
 
             int id = task.getId();
@@ -52,16 +48,6 @@ public class ReadTaskById extends HttpServlet {
             e.printStackTrace();
             response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Database Error: " + e.getMessage());
             return;
-        } finally {
-            if (connection != null) {
-                try {
-                    System.out.println("Closing database connection...");
-                    connection.close();
-                    System.out.println("Database connection closed successfully.");
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-            }
         }
     }
     
