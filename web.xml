@@ -75,6 +75,6 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>DestroySession</servlet-name>
-        <url-pattern>/destroysession</url-pattern>
+        <url-pattern>/destroySession</url-pattern>
     </servlet-mapping>
 </web-app>

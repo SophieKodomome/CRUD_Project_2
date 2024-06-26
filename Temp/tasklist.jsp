@@ -31,7 +31,7 @@
             <header class="mb-10">
                 <h1 class="font-extrabold uppercase text-xl tracking-tight">Notodo</h1>
                 <h2><%=name  %></h2>
-                <a href="/destroySession">Destroy</a>
+                <a href="destroySession" class="underline opacity-50 hover:opacity-100 hover:text-red-500 transform transition-all duration-300 ease-in-out">Destroy</a>
             </header>
             <!--
             <nav class="flex flex-col">
