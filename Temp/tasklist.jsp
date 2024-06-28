@@ -23,6 +23,27 @@
     <title>Notodo</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@3.4.4/base.min.css">
+    <style>
+        .fixed-bottom {
+            position: fixed;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%; /* Adjust the width as needed */
+            background-color: white;
+            z-index: 10;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+        }
+</style>
+<script>
+    const inputField = document.querySelector('input');
+    inputField.addEventListener('focus', () => {
+        inputField.classList.add('border-blue-500');
+    });
+    inputField.addEventListener('blur', () => {
+        inputField.classList.remove('border-blue-500');
+    });
+</script>
 </head>
 
 <body class="font-sans leading-normal tracking-normal">
@@ -173,24 +194,23 @@
                 %>
                     </section>
                 </section>
-                <section class="p-4 border rounded-xl shadow-lg flex flex-col mr-10 mb-10 md:min-w-screen">
+                <section class="fixed-bottom p-4 border rounded-xl shadow-lg flex flex-col mb-10">
                     <h3 class="text-2xl text-blue-500 font-bold mb-4">
                         Add a new Task
                     </h3>
-
-                    <form class=" flex flex-row space-x-4" method="post" action="addTask">
-                        <input name="task" class="placeholder-gray-400 p-2 border-2 border-gray-400 rounded-lg hover:border-blue-500 focus:border-blue-500 focus:outline-none text-blue-500"  type="text" placeholder="New Task">
+                    <form class="flex flex-row space-x-4" method="post" action="addTask">
+                        <input name="task" class="placeholder-gray-400 p-2 border-2 border-gray-400 rounded-lg hover:border-blue-500 focus:border-blue-500 focus:outline-none text-blue-500" type="text" placeholder="New Task">
                         <section class="hover:text-blue-200 bg-blue-500 p-2 rounded-lg text-white flex flex-col">
                             <span class="font-bold">
                                 <label for="remind_time">Reminder Date</label>
                             </span>
-                            <input name="remind_time" id="remind_time"class="bg-blue-500" type="datetime-local">
+                            <input name="remind_time" id="remind_time" class="bg-blue-500" type="datetime-local">
                         </section>
                         <section class="hover:text-blue-200 bg-blue-500 p-2 rounded-lg text-white flex flex-col">
                             <span class="font-bold">
                                 <label for="due_time">Due Date</label>
                             </span>
-                            <input name="due_time" id="due_time"class="bg-blue-500" type="datetime-local">
+                            <input name="due_time" id="due_time" class="bg-blue-500" type="datetime-local">
                         </section>
                         <button class="py-2 px-4 text-white font-semibold bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-lg shadow-lg">
                             Add Task
@@ -204,18 +224,7 @@
                 </div>
             </footer>
         </main>
-
     </div>
-
 </body>
 
 </html>
-<script>
-    const inputField = document.querySelector('input');
-    inputField.addEventListener('focus', () => {
-        inputField.classList.add('border-blue-500');
-    });
-    inputField.addEventListener('blur', () => {
-        inputField.classList.remove('border-blue-500');
-    });
-</script>
